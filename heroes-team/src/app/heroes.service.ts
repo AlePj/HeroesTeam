@@ -10,16 +10,7 @@ export class HeroesService {
   constructor(public http:HttpClient) { 
     
   }
-  private publicKey = '4e1a38113e4d2a2feb6ba2c643f29c64';
-  private privateKey = '8751608c644dcb9b57b45c735cfbdf393528087f';
-  private ts = new Date().getTime();
-  private md5 = new Md5();
-  private heroes = [];
-
-  private obtainHash():any{
-   return this.md5.appendStr(this.ts+this.privateKey+this.publicKey).end();
-  }
-  /* https://gateway.marvel.com:443/v1/public/characters?limit=10&ts=${this.ts}&apikey=${this.publicKey}&hash=${this.obtainHash()} */
+ 
   public getRawHeroes(numberPage){
     if(numberPage == 1){
       numberPage = 0;
