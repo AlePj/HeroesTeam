@@ -17,7 +17,7 @@ export class HeroesListComponent implements OnInit {
     public router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder
-    ) { //TODO No añadir heroes repetidos, rediseñar pagina
+    ) { 
       this.checkoutForm = this.formBuilder.group({
         name: [''],
       });
