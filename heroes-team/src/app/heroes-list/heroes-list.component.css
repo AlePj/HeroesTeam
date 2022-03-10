@@ -1,0 +1,86 @@
+bg-white {
+    background-color: white;
+    
+}
+
+.min-h {
+    min-height: 800px;
+}
+
+.title{
+  letter-spacing: .1em;
+  color: #002351;
+  font-weight: bold;
+}
+
+a {
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  a:hover {
+    cursor: pointer;
+    color: #007CBF;
+    text-decoration-line: underline;
+   
+  }
+
+  .underline{
+    border-bottom: 1px solid #E1E9ED;
+    padding-bottom: 28px;
+  }
+
+  .underline2{
+    margin-top: 34px;
+  }
+
+  .btn-primary{
+    margin-left: 9px;
+    padding: 6px;
+  }
+
+  .btn-primary {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  .btn-primary:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  i{
+    color: white;
+  }
+
+  .btn{
+    margin-left: 5px;
+  }
+
+  #bton{
+    margin-left: 30px;
+    letter-spacing: 0em;
+  }
+
+  .arrows{
+    margin-left: 30%;
+  }
+  
+  .myteam{
+    color: white !important;
+  }
+
+  .bottonOff{
+    display: none;
+  }
+
+  .fa-search{
+    color: #000;
+  }
+
+  .fa-refresh{
+    color: #000;
+  }

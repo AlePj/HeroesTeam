@@ -1,0 +1,36 @@
+  <div class="container-fluid">
+    <div class="row justify-content-center m-0 min-h bg-white">
+      <div class="col-8 ">
+        <div class="row justify-content-center mt-4 content">
+          <div class="col-8">
+          <h3 class="title">HEORES LIST<a class="btn btn-danger myteam" href="heroes/team" id="bton">My Team</a></h3>
+          <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+            <div class="input-group">
+               <input id="name" type="text" formControlName="name" class="form-control" placeholder="Enter name of hero">
+              <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+              <button class="btn btn-outline-secondary" (click)="loadHeroes()" type="button">Reset List</button>
+              <div *ngIf="submitted  && checkoutForm.controls['name'].invalid" class="alert">
+                <div *ngIf="checkoutForm.controls.name.errors.required">Please enter name</div>
+              </div>
+            </div>
+          </form>
+         
+          <div *ngFor="let hero of heroes" class="underline2">
+            <a [title]="hero.name" [routerLink]="[this.router.url,hero.id]" class="underline">
+              {{ hero.name }} 
+            </a>  
+               <a *ngIf="hero.check == false" class="btn btn-danger" (click)="addHero(hero.id,hero.name)"> <i class="fa-solid fa-plus"></i></a>
+               <a *ngIf="hero.check == true" class="btn btn-success" (click)="showMessage()"> <i class="fa-solid fa-check"></i></a>
+          </div>
+
+          <div class="mt-4 arrows">
+            <a class="btn btn-danger " (click)="minusPage()" *ngIf="page > 1"><i class="fa-solid fa-arrow-left"></i></a>
+          <a class="btn btn-secondary "  *ngIf="page == 1"><i class="fa-solid fa-arrow-left"></i></a>
+          {{page}}
+          <a class="btn btn-danger " (click)="plusPage()"><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>

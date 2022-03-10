@@ -1,0 +1,20 @@
+<div class="container-fluid" >
+    <div class="row justify-content-center m-0 min-h">
+      <div class="col-12 bg-white" *ngFor="let details of comicDetails">
+       <p class="title2">{{details.title}}</p>
+        <div class="row justify-content-center mt-4">
+          <div class="col-6 vertical-separator">
+                <p>{{details.description}}</p>
+                <p *ngIf="details.description==''">Este heroe carece de descripción en la base de datos, revisa otro heroe.</p>
+          </div>
+          <div class="col-6" > 
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <img [src]="img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

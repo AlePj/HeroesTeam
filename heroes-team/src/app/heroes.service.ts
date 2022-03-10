@@ -1,0 +1,45 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Md5 } from 'ts-md5';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class HeroesService {
+
+  constructor(public http:HttpClient) { 
+    
+  }
+  private publicKey = '4e1a38113e4d2a2feb6ba2c643f29c64';
+  private privateKey = '8751608c644dcb9b57b45c735cfbdf393528087f';
+  private ts = new Date().getTime();
+  private md5 = new Md5();
+  private heroes = [];
+
+  private obtainHash():any{
+   return this.md5.appendStr(this.ts+this.privateKey+this.publicKey).end();
+  }
+  /* https://gateway.marvel.com:443/v1/public/characters?limit=10&ts=${this.ts}&apikey=${this.publicKey}&hash=${this.obtainHash()} */
+  public getRawHeroes(numberPage){
+    if(numberPage == 1){
+      numberPage = 0;
+    }else{
+      numberPage = numberPage * 7;
+    }
+      return this.http.get(`https://gateway.marvel.com:443/v1/public/characters?limit=7&offset=${numberPage}
+      &apikey=4e1a38113e4d2a2feb6ba2c643f29c64&hash=919f2d42b0d78b3010f524071dfc691f&ts=1646755394`);
+    }
+
+  public getHero(id){
+     return this.http.get(`https://gateway.marvel.com:443/v1/public/characters/`+id+`?&apikey=4e1a38113e4d2a2feb6ba2c643f29c64&hash=919f2d42b0d78b3010f524071dfc691f&ts=1646755394`);
+  }
+
+  public getComic(id){
+    return this.http.get(`http://gateway.marvel.com/v1/public/comics/`+id+`?&apikey=4e1a38113e4d2a2feb6ba2c643f29c64&hash=919f2d42b0d78b3010f524071dfc691f&ts=1646755394`);
+ }
+
+  public getRawHeroes2(){
+      return this.http.get(`https://gateway.marvel.com:443/v1/public/characters?&apikey=4e1a38113e4d2a2feb6ba2c643f29c64&hash=919f2d42b0d78b3010f524071dfc691f&ts=1646755394`);
+    }
+
+}

@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row justify-content-center m-0 min-h bg-white">
+      <div class="col-8 ">
+        <div class="row justify-content-center mt-4 content">
+          <div class="col-8">
+          <h3 class="title" *ngIf="dataList!==''">{{dataList.name}}<a class="btn btn-danger change" href="heroes/team/edit" id="bton" >Cambiar datos del equipo</a></h3>
+          
+          <p *ngIf="list==''">Tu equipo está vacio, accede a la <a href="/">lista</a>.</p>
+
+          <div *ngFor="let hero of list" class="underline2">
+            <a [title]="hero.name" [routerLink]="[this.router.url,hero.id]" class="underline">
+              {{ hero.name }} 
+            </a>  
+               <a class="btn btn-danger " (click)="deleteHero(hero.id)"> <i class="fa fa-trash"></i>
+               </a>
+          </div>
+          <h3 class="title mt-4">DESCRIPCION</h3>
+          <p *ngIf="dataList!==''">{{dataList.description}}</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
